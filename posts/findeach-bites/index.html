@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" prefix="og: http://ogp.me/ns#" xmlns:og="http://ogp.me/ns#"><!--<![endif]-->
+
+    <head>
+                <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="author" content="">
+  
+	
+        <meta property="og:site_name" content="Thong Kuah&#39;s blog">
+        <meta property="og:title" content="Thong Kuah&#39;s blog">
+        <meta property="og:url" content="http://replace-this-with-your-hugo-site.com/posts/findeach-bites/">
+        <meta property="og:description" content="">
+    
+        <meta property="og:type" content="article" />
+        <meta property="og:article:author" content="" />
+        <meta property="og:article:published_time" content="2009-09-08T23:11:00&#43;12:00" />
+    
+        <meta name="generator" content="Hugo 0.16" />
+        <title>find_each bites &middot; Thong Kuah&#39;s blog</title>
+        <link rel="canonical" href="http://replace-this-with-your-hugo-site.com/" />
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="">
+        <link rel="stylesheet" type="text/css" href="http://replace-this-with-your-hugo-site.com/css/main.css"/>
+        <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300|Montserrat:700" rel="stylesheet" type="text/css">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+        <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    </head>
+<body>
+<!--[if lt IE 7]><p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chrome/‎">install Google Chrome</a> to experience this site.</p><![endif]-->
+
+    <header id="site-header">
+        <div class="container">
+            <a href="http://replace-this-with-your-hugo-site.com/" alt="Thong Kuah&#39;s blog"><h1 class="blog-title heading">Thong Kuah&#39;s blog</h1></a>
+            <p class="blog-description"></p>
+        </div>
+    </header>
+<main class="content" role="main">
+	<div class="container">
+		<article class="posts">
+	<header class="post-header">
+        <h3 class="p-post-title">find_each bites</h3>
+    </header>
+
+    <section class="post-content">
+        <p><a href="http://ryandaigle.com/articles/2009/2/23/what-s-new-in-edge-rails-batched-find"> ActiveRecord::Base#find_each</a> is an awesome idiom for batch processing large sets of data. It combines the neat DSL of ActiveRecord and allows you to operate at the level of the individual item.<br /><br />So, imagine my surprise when I debugged my code and discovered that find_each introduces a scope into ActiveRecord calls within the block. Demonstrating by example:<br /><br /><div style="font-family: &quot;Courier New&quot;,Courier,monospace;">Slam.find_each(:conditions =&gt; {:value =&gt; nil}) do |slam|</div><div style="font-family: &quot;Courier New&quot;,Courier,monospace;">#&hellip;.</div><div style="font-family: &quot;Courier New&quot;,Courier,monospace;">&nbsp; Slam.find_by_key(slam.key)   #Find  related key</div><div style="font-family: &quot;Courier New&quot;,Courier,monospace;">&nbsp; #However, in effect becomes Slam.find_by_key(:key =&gt; slam.key, :value =&gt; nil)</div><div style="font-family: &quot;Courier New&quot;,Courier,monospace;">end</div><br />Looking at the SQL in the logs, I expected to see:<br /><br /><div style="font-family: &quot;Courier New&quot;,Courier,monospace;">select * from slams where key = &lsquo;abcde&rsquo;;</div><br />Instead I saw:<br /><br /><div style="font-family: &quot;Courier New&quot;,Courier,monospace;">select * from slams where key = &lsquo;abcde&rsquo; and value is null;</div><br /><span style="font-family: inherit;">It took me fifteen minutes to check and verify there is no code that should be generating that SQL, so the next candidate was find_each. Lo and behold, it was. Turns out find_each is <a href="https://rails.lighthouseapp.com/projects/8994/tickets/2791-activerecordbasefind_in_batches-puts-a-with_scope-into-the-block-that-is-executed">using</a> <a href="http://davedupre.com/2009/05/20/gotcha-with-find_each-and-find_in_batches/">with_scope</a>.&nbsp;</span><br /><br />Looking around, there are already some bug reports for this behaviour:<br /><ul><li><a href="https://rails.lighthouseapp.com/projects/8994/tickets/2791-activerecordbasefind_in_batches-puts-a-with_scope-into-the-block-that-is-executed">https://rails.lighthouseapp.com/projects/8994/tickets/2791-activerecordbasefind_in_batches-puts-a-with_scope-into-the-block-that-is-executed</a></li><li><a href="https://rails.lighthouseapp.com/projects/8994/tickets/2227-batches-conditions-for-each-are-applied-to-each-modelfind-within-the-each-loop">https://rails.lighthouseapp.com/projects/8994/tickets/2227-batches-conditions-for-each-are-applied-to-each-modelfind-within-the-each-loop</a></li></ul>Question: Is this intended or this a bug? I think, given the &ldquo;side-effect&rdquo; feel of it, it&rsquo;s a bug<br /><br /><b>Update</b>:&nbsp; I have reviewed one <a href="https://rails.lighthouseapp.com/projects/8994-ruby-on-rails/tickets/2227-batches-conditions-for-each-are-applied-to-each-modelfind-within-the-each-loop#ticket-2227-5">promising patch to fix this</a>. Needs one more person to review and approve this patch!</p>
+
+    </section>
+
+    <hr>
+
+    <footer class="post-footer">
+        <section class="f-1">
+            
+            <section class="author">
+                <p>Words by YT Kuah</p>
+            </section>
+            
+            
+            <p class="f-post-time"><time datetime="2009-09-08T23:11:00&#43;12:00">September 8, 2009</time></p>
+        </section>
+                        
+        <section class="f-2">
+            <section class="share">
+                <span>Share:
+                <a class="icon-twitter" href="http://twitter.com/share?text=find_each%20bites&url=http%3a%2f%2freplace-this-with-your-hugo-site.com%2fposts%2ffindeach-bites%2f"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fa fa-twitter"></i>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2freplace-this-with-your-hugo-site.com%2fposts%2ffindeach-bites%2f"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <i class="fa fa-facebook"></i>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=http%3a%2f%2freplace-this-with-your-hugo-site.com%2fposts%2ffindeach-bites%2f"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <i class="fa fa-google-plus"></i>
+                </a>
+                </span>
+            </section>
+
+            
+            	<span class="f-post-tags"><i class="fa fa-tag"></i>
+            	batch, rails, intent, bug, find_each
+            	</span>
+            
+        </section>
+                        
+    </footer>
+</article>
+	</div>
+</main>
+    <footer id="site-footer">
+        <div class="container">
+            <a href="http://replace-this-with-your-hugo-site.com/index.xml" title="Get the RSS feed"><span class="tooltip"><i class="fa fa-rss"></i></span></a>
+            <section>&copy; <a href="http://replace-this-with-your-hugo-site.com/"></a> 2015 | All rights reserved</section>
+            <section>Theme by <a href="http://www.jrdnbwmn.com">Jordan Bowman</a>. Generated with <a href="http://gohugo.io/">Hugo</a>.</section>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="http://replace-this-with-your-hugo-site.com/js/fittext.js"></script>
+    <script type="text/javascript">
+      $(".heading").fitText();
+    </script>
+
+
+</body>
+</html>

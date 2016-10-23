@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" prefix="og: http://ogp.me/ns#" xmlns:og="http://ogp.me/ns#"><!--<![endif]-->
+
+    <head>
+                <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="author" content="">
+  
+	
+        <meta property="og:site_name" content="Thong Kuah&#39;s blog">
+        <meta property="og:title" content="Thong Kuah&#39;s blog">
+        <meta property="og:url" content="http://replace-this-with-your-hugo-site.com/posts/solr-and-sunspot/">
+        <meta property="og:description" content="">
+    
+        <meta property="og:type" content="article" />
+        <meta property="og:article:author" content="" />
+        <meta property="og:article:published_time" content="2009-08-24T21:35:00&#43;12:00" />
+    
+        <meta name="generator" content="Hugo 0.16" />
+        <title>Solr, and Sunspot &middot; Thong Kuah&#39;s blog</title>
+        <link rel="canonical" href="http://replace-this-with-your-hugo-site.com/" />
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="">
+        <link rel="stylesheet" type="text/css" href="http://replace-this-with-your-hugo-site.com/css/main.css"/>
+        <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300|Montserrat:700" rel="stylesheet" type="text/css">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+        <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    </head>
+<body>
+<!--[if lt IE 7]><p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chrome/‎">install Google Chrome</a> to experience this site.</p><![endif]-->
+
+    <header id="site-header">
+        <div class="container">
+            <a href="http://replace-this-with-your-hugo-site.com/" alt="Thong Kuah&#39;s blog"><h1 class="blog-title heading">Thong Kuah&#39;s blog</h1></a>
+            <p class="blog-description"></p>
+        </div>
+    </header>
+<main class="content" role="main">
+	<div class="container">
+		<article class="posts">
+	<header class="post-header">
+        <h3 class="p-post-title">Solr, and Sunspot</h3>
+    </header>
+
+    <section class="post-content">
+        <p><b>Update</b>: I have found a nicer way of doing autocomplete. Basically, use the string type with the &ldquo;<span class="Apple-style-span" style="color: #444444; font-family: Monaco, Consolas, 'DejaVu Sans Mono', monospace; font-size: 11px; line-height: 14px; white-space: pre;">starting_with&rdquo;&nbsp;</span>method.&nbsp;See this <a href="http://outoftime.lighthouseapp.com/projects/20339/tickets/55-wildcard-searches#ticket-55-10">ticket comment</a>.<br /><br /><a href="http://lucene.apache.org/solr/">Solr</a> is really nice search engine which has the added advantage of being able to <a href="http://wiki.apache.org/solr/SchemaXml#head-73cdcd26354f1e31c6268b365023f21ee8796613">return items</a> that you put into the search engine, unlike say, sphinx (which is really fast but only returns the <a href="http://www.sphinxsearch.com/docs/current.html#data-restrictions">document id</a>).<br /><br />However, Solr <a href="http://wiki.apache.org/solr/SolrQuerySyntax">is</a> <a href="http://lucene.apache.org/java/2_4_0/queryparsersyntax.html">very</a> <a href="http://wiki.apache.org/solr/SolrPlugins">complex</a>.<br /><br />Thankfully, there is a very neat <a href="http://outoftime.github.com/sunspot/">ruby abstraction for Solr</a>, called <a href="http://github.com/outoftime/sunspot/tree">Sunspot</a>. Given I needed to do autocomplete on it, i.e. &ldquo;query<em>&rdquo; type stuff, I had to <a href="http://github.com/kuahyeow/sunspot/tree/master">fork Sunspot</a>. Here is the relevant change I made to <a href="http://github.com/kuahyeow/sunspot/commit/033ac410446bb506f4c09e8ca93a9648ec8abca0">enable wildcard searches with Sunspot</a>:<br /><a name='more'></a><br /><a href="http://pastie.org/592897">http://pastie.org/592897</a><br /><script src="http://pastie.org/592897.js"></script><br /><br />For those interested in how this works, it uses the <a href="http://wiki.apache.org/solr/DisMaxRequestHandler#head-9d23a23915b7932490069d3262ef7f3625e398ff">q.alt parameter</a> as Sunspot uses the rather &ldquo;user-friendly&rdquo; <a href="http://wiki.github.com/outoftime/sunspot/fulltext-search">DisMaxRequestHandler</a>, which ignores &ldquo;</em>&rdquo; characters.</p>
+
+    </section>
+
+    <hr>
+
+    <footer class="post-footer">
+        <section class="f-1">
+            
+            <section class="author">
+                <p>Words by YT Kuah</p>
+            </section>
+            
+            
+            <p class="f-post-time"><time datetime="2009-08-24T21:35:00&#43;12:00">August 24, 2009</time></p>
+        </section>
+                        
+        <section class="f-2">
+            <section class="share">
+                <span>Share:
+                <a class="icon-twitter" href="http://twitter.com/share?text=Solr%2c%20and%20Sunspot&url=http%3a%2f%2freplace-this-with-your-hugo-site.com%2fposts%2fsolr-and-sunspot%2f"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fa fa-twitter"></i>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2freplace-this-with-your-hugo-site.com%2fposts%2fsolr-and-sunspot%2f"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <i class="fa fa-facebook"></i>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=http%3a%2f%2freplace-this-with-your-hugo-site.com%2fposts%2fsolr-and-sunspot%2f"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <i class="fa fa-google-plus"></i>
+                </a>
+                </span>
+            </section>
+
+            
+            	<span class="f-post-tags"><i class="fa fa-tag"></i>
+            	sunspot, autocomplete, rails, ruby, full-text search, solr
+            	</span>
+            
+        </section>
+                        
+    </footer>
+</article>
+	</div>
+</main>
+    <footer id="site-footer">
+        <div class="container">
+            <a href="http://replace-this-with-your-hugo-site.com/index.xml" title="Get the RSS feed"><span class="tooltip"><i class="fa fa-rss"></i></span></a>
+            <section>&copy; <a href="http://replace-this-with-your-hugo-site.com/"></a> 2015 | All rights reserved</section>
+            <section>Theme by <a href="http://www.jrdnbwmn.com">Jordan Bowman</a>. Generated with <a href="http://gohugo.io/">Hugo</a>.</section>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="http://replace-this-with-your-hugo-site.com/js/fittext.js"></script>
+    <script type="text/javascript">
+      $(".heading").fitText();
+    </script>
+
+
+</body>
+</html>

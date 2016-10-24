@@ -6,8 +6,25 @@
     <description>Recent content on Thong Kuah&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 25 Sep 2011 13:01:00 +1300</lastBuildDate>
+    <lastBuildDate>Mon, 24 Oct 2016 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://blog.kuahyeow.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Reboot with Hugo</title>
+      <link>https://blog.kuahyeow.com/posts/reboot-with-hugo/</link>
+      <pubDate>Mon, 24 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.kuahyeow.com/posts/reboot-with-hugo/</guid>
+      <description>&lt;p&gt;Thanks to the magic of static site generators, I&amp;rsquo;ve now moved from Blogger to &lt;a href=&#34;https://gohugo.io&#34;&gt;Hugo&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;All static site generators are much for muchness, but Hugo appealed to me with the chance of at least hacking in Go.
+The main benefit though would be archive all my writing in &lt;code&gt;git&lt;/code&gt; - which can now be found at &lt;a href=&#34;https://github.com/kuahyeow/kuahyeow-blog&#34;&gt;https://github.com/kuahyeow/kuahyeow-blog&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The code to generate my blog is kept in a separate &lt;a href=&#34;https://github.com/kuahyeow/kuahyeow-hugo&#34;&gt;repository&lt;/a&gt;. Besides the folders to drive
+Hugo, I have included a home-made Blogger to Hugo importer. See &lt;a href=&#34;https://github.com/kuahyeow/kuahyeow-hugo/blob/master/importedFromBlogger/blogger2markdown.rb&#34;&gt;https://github.com/kuahyeow/kuahyeow-hugo/blob/master/importedFromBlogger/blogger2markdown.rb&lt;/a&gt;
+for full gory details.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Land and Waste New Zealand - #mixandmashnz</title>
@@ -174,16 +191,6 @@
       
       <guid>https://blog.kuahyeow.com/posts/findeach-bites/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://ryandaigle.com/articles/2009/2/23/what-s-new-in-edge-rails-batched-find&#34;&gt; ActiveRecord::Base#find_each&lt;/a&gt; is an awesome idiom for batch processing large sets of data. It combines the neat DSL of ActiveRecord and allows you to operate at the level of the individual item.&lt;br /&gt;&lt;br /&gt;So, imagine my surprise when I debugged my code and discovered that find_each introduces a scope into ActiveRecord calls within the block. Demonstrating by example:&lt;br /&gt;&lt;br /&gt;&lt;div style=&#34;font-family: &amp;quot;Courier New&amp;quot;,Courier,monospace;&#34;&gt;Slam.find_each(:conditions =&amp;gt; {:value =&amp;gt; nil}) do |slam|&lt;/div&gt;&lt;div style=&#34;font-family: &amp;quot;Courier New&amp;quot;,Courier,monospace;&#34;&gt;#&amp;hellip;.&lt;/div&gt;&lt;div style=&#34;font-family: &amp;quot;Courier New&amp;quot;,Courier,monospace;&#34;&gt;&amp;nbsp; Slam.find_by_key(slam.key)   #Find  related key&lt;/div&gt;&lt;div style=&#34;font-family: &amp;quot;Courier New&amp;quot;,Courier,monospace;&#34;&gt;&amp;nbsp; #However, in effect becomes Slam.find_by_key(:key =&amp;gt; slam.key, :value =&amp;gt; nil)&lt;/div&gt;&lt;div style=&#34;font-family: &amp;quot;Courier New&amp;quot;,Courier,monospace;&#34;&gt;end&lt;/div&gt;&lt;br /&gt;Looking at the SQL in the logs, I expected to see:&lt;br /&gt;&lt;br /&gt;&lt;div style=&#34;font-family: &amp;quot;Courier New&amp;quot;,Courier,monospace;&#34;&gt;select * from slams where key = &amp;lsquo;abcde&amp;rsquo;;&lt;/div&gt;&lt;br /&gt;Instead I saw:&lt;br /&gt;&lt;br /&gt;&lt;div style=&#34;font-family: &amp;quot;Courier New&amp;quot;,Courier,monospace;&#34;&gt;select * from slams where key = &amp;lsquo;abcde&amp;rsquo; and value is null;&lt;/div&gt;&lt;br /&gt;&lt;span style=&#34;font-family: inherit;&#34;&gt;It took me fifteen minutes to check and verify there is no code that should be generating that SQL, so the next candidate was find_each. Lo and behold, it was. Turns out find_each is &lt;a href=&#34;https://rails.lighthouseapp.com/projects/8994/tickets/2791-activerecordbasefind_in_batches-puts-a-with_scope-into-the-block-that-is-executed&#34;&gt;using&lt;/a&gt; &lt;a href=&#34;http://davedupre.com/2009/05/20/gotcha-with-find_each-and-find_in_batches/&#34;&gt;with_scope&lt;/a&gt;.&amp;nbsp;&lt;/span&gt;&lt;br /&gt;&lt;br /&gt;Looking around, there are already some bug reports for this behaviour:&lt;br /&gt;&lt;ul&gt;&lt;li&gt;&lt;a href=&#34;https://rails.lighthouseapp.com/projects/8994/tickets/2791-activerecordbasefind_in_batches-puts-a-with_scope-into-the-block-that-is-executed&#34;&gt;https://rails.lighthouseapp.com/projects/8994/tickets/2791-activerecordbasefind_in_batches-puts-a-with_scope-into-the-block-that-is-executed&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&#34;https://rails.lighthouseapp.com/projects/8994/tickets/2227-batches-conditions-for-each-are-applied-to-each-modelfind-within-the-each-loop&#34;&gt;https://rails.lighthouseapp.com/projects/8994/tickets/2227-batches-conditions-for-each-are-applied-to-each-modelfind-within-the-each-loop&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;Question: Is this intended or this a bug? I think, given the &amp;ldquo;side-effect&amp;rdquo; feel of it, it&amp;rsquo;s a bug&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Update&lt;/b&gt;:&amp;nbsp; I have reviewed one &lt;a href=&#34;https://rails.lighthouseapp.com/projects/8994-ruby-on-rails/tickets/2227-batches-conditions-for-each-are-applied-to-each-modelfind-within-the-each-loop#ticket-2227-5&#34;&gt;promising patch to fix this&lt;/a&gt;. Needs one more person to review and approve this patch!&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Fear the singularity</title>
-      <link>https://blog.kuahyeow.com/posts/fear-singularity/</link>
-      <pubDate>Sun, 06 Sep 2009 21:17:00 +1200</pubDate>
-      
-      <guid>https://blog.kuahyeow.com/posts/fear-singularity/</guid>
-      <description>&lt;p&gt;I found several interesting things this month. &lt;br /&gt;&lt;ul&gt;&lt;li&gt;Super fast &lt;a href=&#34;http://www.youtube.com/watch?v=96dWOEa4Djs&#34;&gt;SSD&lt;/a&gt; hard disks&lt;br /&gt;&lt;/li&gt;&lt;li&gt;21GB &lt;a href=&#34;http://www.tomshardware.com/news/pirate-bay-torrent-bittorrent-download,8465.html&#34;&gt;pirate bay index&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&#34;http://en.wikipedia.org/wiki/Technological_singularity&#34;&gt;Singularity&lt;/a&gt; &lt;a href=&#34;http://en.wikipedia.org/wiki/Rainbows_End&#34;&gt;in&lt;/a&gt; &lt;a href=&#34;http://www-rohan.sdsu.edu/faculty/vinge/misc/singularity.html&#34;&gt;thirty years&lt;/a&gt; &lt;/li&gt;&lt;/ul&gt;Ok, the last one is really out there, but it points the way. Imagine the whole sum of human creative endeavor (at least the popular ones) indexed in just 21GB. All we need is just some sort of instant hash expansion for that 21GB (and 20 more years of PC power advancement). And so on and so forth. Value of data or content would be worth next to nothing.&lt;br /&gt;&lt;br /&gt;Will that happen? Probably, after &lt;a href=&#34;http://en.wikipedia.org/wiki/Flying_car_%28fiction%29&#34;&gt;flying cars&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     

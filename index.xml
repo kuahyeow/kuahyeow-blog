@@ -6,8 +6,28 @@
     <description>Recent content on Thong Kuah&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 24 Oct 2016 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Dec 2016 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://blog.kuahyeow.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Convert array to hash of hashes...</title>
+      <link>https://blog.kuahyeow.com/posts/russian-doll-hashes/</link>
+      <pubDate>Sun, 04 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.kuahyeow.com/posts/russian-doll-hashes/</guid>
+      <description>&lt;p&gt;I wanted to convert a array of &lt;code&gt;[item1, item2, item3]&lt;/code&gt; to &lt;code&gt;{item1 =&amp;gt; {item2 =&amp;gt; item3}}&lt;/code&gt;.
+Here is the quick and dirty code I came up with&amp;hellip;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;def convert_to_hash(array)                                                                                                                            
+  last = array.slice(1..-1)                                                                                                                           
+  value = last.empty? ? {} : convert_to_hash(last)                                                                                                    
+  {array[0] =&amp;gt; value}                                                                                                                                 
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I am not proud :/&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Reboot with Hugo</title>
@@ -181,16 +201,6 @@ for full gory details.&lt;/p&gt;
       
       <guid>https://blog.kuahyeow.com/posts/ruby-and-rails-links-best-of/</guid>
       <description>&lt;p&gt;Monthly collection of Ruby links that I&amp;rsquo;ll regret forgetting about:&lt;br /&gt;&lt;ul&gt;&lt;li&gt;&lt;a href=&#34;http://yehudakatz.com/2009/08/24/my-10-favorite-things-about-the-ruby-language/&#34;&gt;My 10 Favorite Things About the Ruby Language � Katz Got Your Tongue?&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&#34;http://dablog.rubypal.com/2009/1/14/10-things-to-be-aware-of-in-moving-to-ruby-1-9&#34;&gt;http://dablog.rubypal.com/2009/1/14/10-things-to-be-aware-of-in-moving-to-ruby-1-9&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&#34;http://dablog.rubypal.com/2009/1/16/son-of-10-things-to-be-aware-of-in-ruby-1-9&#34;&gt;http://dablog.rubypal.com/2009/1/16/son-of-10-things-to-be-aware-of-in-ruby-1-9&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&#34;http://www.manning.com/black2/&#34;&gt;http://www.manning.com/black2/&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&#34;http://weblog.rubyonrails.org/2009/9/4/ruby-on-rails-2-3-4&#34;&gt;Upgrade to Rails 2.3.4, 2.2.3&lt;/a&gt; (Security Release) &lt;/li&gt;&lt;li&gt;&lt;a href=&#34;http://weblog.rubyonrails.org/2009/9/1/gem-packaging-best-practices&#34;&gt;Riding Rails: Gem Packaging: Best Practices&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>find_each bites</title>
-      <link>https://blog.kuahyeow.com/posts/findeach-bites/</link>
-      <pubDate>Tue, 08 Sep 2009 23:11:00 +1200</pubDate>
-      
-      <guid>https://blog.kuahyeow.com/posts/findeach-bites/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;http://ryandaigle.com/articles/2009/2/23/what-s-new-in-edge-rails-batched-find&#34;&gt; ActiveRecord::Base#find_each&lt;/a&gt; is an awesome idiom for batch processing large sets of data. It combines the neat DSL of ActiveRecord and allows you to operate at the level of the individual item.&lt;br /&gt;&lt;br /&gt;So, imagine my surprise when I debugged my code and discovered that find_each introduces a scope into ActiveRecord calls within the block. Demonstrating by example:&lt;br /&gt;&lt;br /&gt;&lt;div style=&#34;font-family: &amp;quot;Courier New&amp;quot;,Courier,monospace;&#34;&gt;Slam.find_each(:conditions =&amp;gt; {:value =&amp;gt; nil}) do |slam|&lt;/div&gt;&lt;div style=&#34;font-family: &amp;quot;Courier New&amp;quot;,Courier,monospace;&#34;&gt;#&amp;hellip;.&lt;/div&gt;&lt;div style=&#34;font-family: &amp;quot;Courier New&amp;quot;,Courier,monospace;&#34;&gt;&amp;nbsp; Slam.find_by_key(slam.key)   #Find  related key&lt;/div&gt;&lt;div style=&#34;font-family: &amp;quot;Courier New&amp;quot;,Courier,monospace;&#34;&gt;&amp;nbsp; #However, in effect becomes Slam.find_by_key(:key =&amp;gt; slam.key, :value =&amp;gt; nil)&lt;/div&gt;&lt;div style=&#34;font-family: &amp;quot;Courier New&amp;quot;,Courier,monospace;&#34;&gt;end&lt;/div&gt;&lt;br /&gt;Looking at the SQL in the logs, I expected to see:&lt;br /&gt;&lt;br /&gt;&lt;div style=&#34;font-family: &amp;quot;Courier New&amp;quot;,Courier,monospace;&#34;&gt;select * from slams where key = &amp;lsquo;abcde&amp;rsquo;;&lt;/div&gt;&lt;br /&gt;Instead I saw:&lt;br /&gt;&lt;br /&gt;&lt;div style=&#34;font-family: &amp;quot;Courier New&amp;quot;,Courier,monospace;&#34;&gt;select * from slams where key = &amp;lsquo;abcde&amp;rsquo; and value is null;&lt;/div&gt;&lt;br /&gt;&lt;span style=&#34;font-family: inherit;&#34;&gt;It took me fifteen minutes to check and verify there is no code that should be generating that SQL, so the next candidate was find_each. Lo and behold, it was. Turns out find_each is &lt;a href=&#34;https://rails.lighthouseapp.com/projects/8994/tickets/2791-activerecordbasefind_in_batches-puts-a-with_scope-into-the-block-that-is-executed&#34;&gt;using&lt;/a&gt; &lt;a href=&#34;http://davedupre.com/2009/05/20/gotcha-with-find_each-and-find_in_batches/&#34;&gt;with_scope&lt;/a&gt;.&amp;nbsp;&lt;/span&gt;&lt;br /&gt;&lt;br /&gt;Looking around, there are already some bug reports for this behaviour:&lt;br /&gt;&lt;ul&gt;&lt;li&gt;&lt;a href=&#34;https://rails.lighthouseapp.com/projects/8994/tickets/2791-activerecordbasefind_in_batches-puts-a-with_scope-into-the-block-that-is-executed&#34;&gt;https://rails.lighthouseapp.com/projects/8994/tickets/2791-activerecordbasefind_in_batches-puts-a-with_scope-into-the-block-that-is-executed&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&#34;https://rails.lighthouseapp.com/projects/8994/tickets/2227-batches-conditions-for-each-are-applied-to-each-modelfind-within-the-each-loop&#34;&gt;https://rails.lighthouseapp.com/projects/8994/tickets/2227-batches-conditions-for-each-are-applied-to-each-modelfind-within-the-each-loop&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;Question: Is this intended or this a bug? I think, given the &amp;ldquo;side-effect&amp;rdquo; feel of it, it&amp;rsquo;s a bug&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Update&lt;/b&gt;:&amp;nbsp; I have reviewed one &lt;a href=&#34;https://rails.lighthouseapp.com/projects/8994-ruby-on-rails/tickets/2227-batches-conditions-for-each-are-applied-to-each-modelfind-within-the-each-loop#ticket-2227-5&#34;&gt;promising patch to fix this&lt;/a&gt;. Needs one more person to review and approve this patch!&lt;/p&gt;
 </description>
     </item>
     

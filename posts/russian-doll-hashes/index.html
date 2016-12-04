@@ -24,7 +24,7 @@
         <meta property="og:article:author" content="" />
         <meta property="og:article:published_time" content="2016-12-04T00:00:00Z" />
     
-        <meta name="generator" content="Hugo 0.16" />
+        <meta name="generator" content="Hugo 0.17" />
         <title>Convert array to hash of hashes... &middot; Thong Kuah&#39;s blog</title>
         <link rel="canonical" href="https://blog.kuahyeow.com/" />
         <link rel="alternate" type="application/rss+xml" title="RSS" href="">
@@ -53,6 +53,8 @@
         <p>I wanted to convert a array of <code>[item1, item2, item3]</code> to <code>{item1 =&gt; {item2 =&gt; item3}}</code>.
 Here is the quick and dirty code I came up with&hellip;</p>
 
+<p></p>
+
 <pre><code>def convert_to_hash(array)                                                                                                                            
   last = array.slice(1..-1)                                                                                                                           
   value = last.empty? ? {} : convert_to_hash(last)                                                                                                    
@@ -61,7 +63,6 @@ end
 </code></pre>
 
 <p>I am not proud :/</p>
-
     </section>
 
     <hr>

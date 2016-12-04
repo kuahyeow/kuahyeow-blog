@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Thong Kuah&#39;s blog</title>
-    <link>https://blog.kuahyeow.com/posts/</link>
-    <description>Recent content in Posts on Thong Kuah&#39;s blog</description>
+    <title>Posts-rsses on Thong Kuah&#39;s blog</title>
+    <link>https://blog.kuahyeow.com/posts/index.xml</link>
+    <description>Recent content in Posts-rsses on Thong Kuah&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 04 Dec 2016 00:00:00 +0000</lastBuildDate>
@@ -18,6 +18,8 @@
       <description>&lt;p&gt;I wanted to convert a array of &lt;code&gt;[item1, item2, item3]&lt;/code&gt; to &lt;code&gt;{item1 =&amp;gt; {item2 =&amp;gt; item3}}&lt;/code&gt;.
 Here is the quick and dirty code I came up with&amp;hellip;&lt;/p&gt;
 
+&lt;p&gt;&lt;/p&gt;
+
 &lt;pre&gt;&lt;code&gt;def convert_to_hash(array)                                                                                                                            
   last = array.slice(1..-1)                                                                                                                           
   value = last.empty? ? {} : convert_to_hash(last)                                                                                                    
@@ -25,8 +27,7 @@ Here is the quick and dirty code I came up with&amp;hellip;&lt;/p&gt;
 end
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;I am not proud :/&lt;/p&gt;
-</description>
+&lt;p&gt;I am not proud :/&lt;/p&gt;</description>
     </item>
     
     <item>

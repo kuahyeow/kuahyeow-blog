@@ -22,7 +22,7 @@
     
         <meta property="og:type" content="website" />
     
-        <meta name="generator" content="Hugo 0.16" />
+        <meta name="generator" content="Hugo 0.17" />
         <title>Posts &middot; Thong Kuah&#39;s blog</title>
         <link rel="canonical" href="https://blog.kuahyeow.com/" />
         <link rel="alternate" type="application/rss+xml" title="RSS" href="https://blog.kuahyeow.com/posts/index.xml">
@@ -50,7 +50,10 @@
     </header>
     
     <section class="post-excerpt">
-        <p>Some good Software Engineering pearls of wisdom :&nbsp; Coding Horror: The Xanadu Dream The bottom line is that a lot of the time it&rsquo;s OK to create a solution that solves 80% of the problem. Always remember that shipping is a feature. Agile development, startups and government policy My recommendation to just about anyone with an idea is to just build the thing, iterate until you have some user traction, then pitch angel investors based on that traction.</p>
+        <p>Some good Software Engineering pearls of wisdom :&nbsp; Coding Horror: The Xanadu Dream
+The bottom line is that a lot of the time it&rsquo;s OK to create a solution that solves 80% of the problem. Always remember that shipping is a feature.
+Agile development, startups and government policy
+My recommendation to just about anyone with an idea is to just build the thing, iterate until you have some user traction, then pitch angel investors based on that traction.</p>
     </section>
 
     <footer class="post-footer">
@@ -71,7 +74,8 @@
     </header>
     
     <section class="post-excerpt">
-        <p>Reading this article about Wellington Hazards just makes me want to plot it on a map. It took a while, but here is a map of Wellington Hazards / Contamination. Below is a screenshots of the hazards on Google Earth and Google Maps (Google Earth shot nicely prepared by Cameron).&nbsp; Let me know what do you think? Read on after the jump for hyper-technical explanation of how I made the map.&nbsp; Here&rsquo;s the lowdown on the technical wizardry.</p>
+        <p>Reading this article about Wellington Hazards just makes me want to plot it on a map. It took a while, but here is a map of Wellington Hazards / Contamination. Below is a screenshots of the hazards on Google Earth and Google Maps (Google Earth shot nicely prepared by Cameron).&nbsp; Let me know what do you think?
+Read on after the jump for hyper-technical explanation of how I made the map.</p>
     </section>
 
     <footer class="post-footer">
@@ -92,7 +96,9 @@
     </header>
     
     <section class="post-excerpt">
-        <p>Came upon this really good post about people you should cherish: Rands In Repose: Your People Really good insight - &ldquo;As we edit our days into these stories, there is always a risk of fiction. This is why you need to identify and nurture Your People.&rdquo; What are Your People? &ldquo;You tell these stories to Your People without reservation. Your People love your stories — fiction and all. They love how you tell them, they laugh about the lies you tell yourself, and then they stop and they tell you the truth.&rdquo; You need someone to keep you honest.</p>
+        <p>Came upon this really good post about people you should cherish: Rands In Repose: Your People
+Really good insight - &ldquo;As we edit our days into these stories, there is always a risk of fiction. This is why you need to identify and nurture Your People.&rdquo;
+What are Your People? &ldquo;You tell these stories to Your People without reservation. Your People love your stories — fiction and all. They love how you tell them, they laugh about the lies you tell yourself, and then they stop and they tell you the truth.</p>
     </section>
 
     <footer class="post-footer">
@@ -134,7 +140,8 @@
     </header>
     
     <section class="post-excerpt">
-        <p>Monthly collection of Ruby links that I&rsquo;ll regret forgetting about: My 10 Favorite Things About the Ruby Language � Katz Got Your Tongue?http://dablog.rubypal.com/2009/1/14/10-things-to-be-aware-of-in-moving-to-ruby-1-9http://dablog.rubypal.com/2009/1/16/son-of-10-things-to-be-aware-of-in-ruby-1-9http://www.manning.com/black2/Upgrade to Rails 2.3.4, 2.2.3 (Security Release) Riding Rails: Gem Packaging: Best Practices</p>
+        <p>Monthly collection of Ruby links that I&rsquo;ll regret forgetting about:
+My 10 Favorite Things About the Ruby Language � Katz Got Your Tongue?http://dablog.rubypal.com/2009/1/14/10-things-to-be-aware-of-in-moving-to-ruby-1-9http://dablog.rubypal.com/2009/1/16/son-of-10-things-to-be-aware-of-in-ruby-1-9http://www.manning.com/black2/Upgrade to Rails 2.3.4, 2.2.3 (Security Release) Riding Rails: Gem Packaging: Best Practices</p>
     </section>
 
     <footer class="post-footer">
@@ -155,7 +162,9 @@
     </header>
     
     <section class="post-excerpt">
-        <p>ActiveRecord::Base#find_each is an awesome idiom for batch processing large sets of data. It combines the neat DSL of ActiveRecord and allows you to operate at the level of the individual item. So, imagine my surprise when I debugged my code and discovered that find_each introduces a scope into ActiveRecord calls within the block. Demonstrating by example: Slam.find_each(:conditions =&gt; {:value =&gt; nil}) do |slam|#&hellip;.&nbsp; Slam.find_by_key(slam.key) #Find related key&nbsp; #However, in effect becomes Slam.find_by_key(:key =&gt; slam.key, :value =&gt; nil)end Looking at the SQL in the logs, I expected to see: select * from slams where key = &lsquo;abcde&rsquo;; Instead I saw: select * from slams where key = &lsquo;abcde&rsquo; and value is null; It took me fifteen minutes to check and verify there is no code that should be generating that SQL, so the next candidate was find_each.</p>
+        <p>ActiveRecord::Base#find_each is an awesome idiom for batch processing large sets of data. It combines the neat DSL of ActiveRecord and allows you to operate at the level of the individual item.
+So, imagine my surprise when I debugged my code and discovered that find_each introduces a scope into ActiveRecord calls within the block. Demonstrating by example:
+Slam.find_each(:conditions =&gt; {:value =&gt; nil}) do |slam|#&hellip;.&nbsp; Slam.find_by_key(slam.key) #Find related key&nbsp; #However, in effect becomes Slam.</p>
     </section>
 
     <footer class="post-footer">
@@ -176,7 +185,8 @@
     </header>
     
     <section class="post-excerpt">
-        <p>I found several interesting things this month. Super fast SSD hard disks 21GB pirate bay indexSingularity in thirty years Ok, the last one is really out there, but it points the way. Imagine the whole sum of human creative endeavor (at least the popular ones) indexed in just 21GB. All we need is just some sort of instant hash expansion for that 21GB (and 20 more years of PC power advancement).</p>
+        <p>I found several interesting things this month. Super fast SSD hard disks
+21GB pirate bay indexSingularity in thirty years Ok, the last one is really out there, but it points the way. Imagine the whole sum of human creative endeavor (at least the popular ones) indexed in just 21GB. All we need is just some sort of instant hash expansion for that 21GB (and 20 more years of PC power advancement).</p>
     </section>
 
     <footer class="post-footer">
@@ -197,7 +207,8 @@
     </header>
     
     <section class="post-excerpt">
-        <p>Someone always asks this question -&nbsp; how do you check types in Ruby? (*Hint: Ruby use dynamic typing) This typical newbie question would ask this and be answered with various levels of helpfulness - typically none - sadly. However this thread is just beautiful in its helpfulness. http://groups.google.com/group/comp.lang.ruby/msg/eb4b49a511e44be6?hl=en What happended snarkiness, or Slashdot / Youtube style comments? All this helpfulness must come from somewhere. I blame Twitter.</p>
+        <p>Someone always asks this question -&nbsp; how do you check types in Ruby? (*Hint: Ruby use dynamic typing) This typical newbie question would ask this and be answered with various levels of helpfulness - typically none - sadly. However this thread is just beautiful in its helpfulness. http://groups.google.com/group/comp.lang.ruby/msg/eb4b49a511e44be6?hl=en
+What happended snarkiness, or Slashdot / Youtube style comments? All this helpfulness must come from somewhere. I blame Twitter.</p>
     </section>
 
     <footer class="post-footer">
@@ -218,7 +229,8 @@
     </header>
     
     <section class="post-excerpt">
-        <p>Hacking for the greater good : the good being helping to free up important government information. A Barcamp and Hackfest was held just this weekend, in the last days of August. I participated in the Hackfest, which was held at the amazing Southern Cross Bar. Great food and nice private room made for a good environment for coding. The Hackfest was a bit more structured than previous events I have been to, but I&rsquo;ll say this had a positive effect of helping people choose what and who they wanted to work with.</p>
+        <p>Hacking for the greater good : the good being helping to free up important government information. A Barcamp and Hackfest was held just this weekend, in the last days of August. I participated in the Hackfest, which was held at the amazing Southern Cross Bar. Great food and nice private room made for a good environment for coding.
+The Hackfest was a bit more structured than previous events I have been to, but I&rsquo;ll say this had a positive effect of helping people choose what and who they wanted to work with.</p>
     </section>
 
     <footer class="post-footer">
@@ -239,7 +251,10 @@
     </header>
     
     <section class="post-excerpt">
-        <p>Update: I have found a nicer way of doing autocomplete. Basically, use the string type with the &ldquo;starting_with&rdquo;&nbsp;method.&nbsp;See this ticket comment. Solr is really nice search engine which has the added advantage of being able to return items that you put into the search engine, unlike say, sphinx (which is really fast but only returns the document id). However, Solr is very complex. Thankfully, there is a very neat ruby abstraction for Solr, called Sunspot.</p>
+        <p>Update: I have found a nicer way of doing autocomplete. Basically, use the string type with the &ldquo;starting_with&rdquo;&nbsp;method.&nbsp;See this ticket comment.
+Solr is really nice search engine which has the added advantage of being able to return items that you put into the search engine, unlike say, sphinx (which is really fast but only returns the document id).
+However, Solr is very complex.
+Thankfully, there is a very neat ruby abstraction for Solr, called Sunspot.</p>
     </section>
 
     <footer class="post-footer">

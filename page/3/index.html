@@ -22,7 +22,7 @@
     
         <meta property="og:type" content="website" />
     
-        <meta name="generator" content="Hugo 0.16" />
+        <meta name="generator" content="Hugo 0.17" />
         <title>Thong Kuah&#39;s blog &middot; Thong Kuah&#39;s blog</title>
         <link rel="canonical" href="https://blog.kuahyeow.com/" />
         <link rel="alternate" type="application/rss+xml" title="RSS" href="https://blog.kuahyeow.com/index.xml">
@@ -50,7 +50,17 @@
     </header>
     
     <section class="post-excerpt">
-        <p>Let&rsquo;s start simple. Here is a situation I have encountered more than once. We have this big long class or method, and embedded in it are several blocks of code, all commented out. def some_method(a) do_something(a) calc_another # wow # do_do # calc_calc # zcalc(z) end What should I do? Given the code is version controlled, I would happily throw it away. The code is commented out and will have no effect whatsoever on any program or user.</p>
+        <p>Let&rsquo;s start simple. Here is a situation I have encountered more than once. We have this big long class or method, and embedded in it are several blocks of code, all commented out.
+def some_method(a)
+do_something(a)
+calc_another
+# wow
+# do_do
+# calc_calc
+# zcalc(z)
+end
+What should I do? Given the code is version controlled, I would happily throw it away.
+The code is commented out and will have no effect whatsoever on any program or user.</p>
     </section>
 
     <footer class="post-footer">
@@ -71,7 +81,8 @@
     </header>
     
     <section class="post-excerpt">
-        <p>Consider this question from Riding Rails: Community Highlights: IronRuby (emphasis mine). Matt: Are there any limitations that our readers should be aware of before starting to develop on IronRuby? Jimmy: The main limitation is that IronRuby does not support any of the C-based Ruby libraries, and only after 1.0 will we consider building an interop layer between the Ruby C API and IronRuby. In the meantime, people have been porting their favorite C-based Ruby libraries over to C# so it can be used from IronRuby, like Hpricot.</p>
+        <p>Consider this question from Riding Rails: Community Highlights: IronRuby (emphasis mine).
+Matt: Are there any limitations that our readers should be aware of before starting to develop on IronRuby? Jimmy: The main limitation is that IronRuby does not support any of the C-based Ruby libraries, and only after 1.0 will we consider building an interop layer between the Ruby C API and IronRuby. In the meantime, people have been porting their favorite C-based Ruby libraries over to C# so it can be used from IronRuby, like Hpricot.</p>
     </section>
 
     <footer class="post-footer">
@@ -92,7 +103,12 @@
     </header>
     
     <section class="post-excerpt">
-        <p>I did a Git workshop for Summer of Code NZ students. Here it is: Code Management View more documents from kuahyeow. Full details at the Summer of Code blog: http://blog.summerofcode.co.nz/2009/07/31/code-management-git-workshop/</p>
+        <p>I did a Git workshop for Summer of Code NZ students. Here it is:
+
+Code Management
+View more documents from kuahyeow.
+Full details at the Summer of Code blog:
+http://blog.summerofcode.co.nz/2009/07/31/code-management-git-workshop/</p>
     </section>
 
     <footer class="post-footer">
@@ -113,7 +129,13 @@
     </header>
     
     <section class="post-excerpt">
-        <p>(Cross-posted from http://blog.projectxtech.com/2009/08/06/rails-3-updates/) Rails 3 is a rewrite / merger with Merb, and includes Yehuda Katz, Merb lead developer working on it full-time. Here are some posts which were published recently: http://yehudakatz.com/2008/12/23/rails-and-merb-merge/ http://weblog.rubyonrails.org/2009/7/30/community-highlights-yehuda-katz http://yehudakatz.com/2009/03/06/alias_method_chain-in-models/ http://www.engineyard.com/blog/2009/6-steps-to-refactoring-rails-for-mere-mortals/ There are lots of lessons and techniques in ruby, rails and general programming to be learnt from these posts. Enjoy!</p>
+        <p>(Cross-posted from http://blog.projectxtech.com/2009/08/06/rails-3-updates/)
+Rails 3 is a rewrite / merger with Merb, and includes Yehuda Katz, Merb lead developer working on it full-time. Here are some posts which were published recently:
+http://yehudakatz.com/2008/12/23/rails-and-merb-merge/
+http://weblog.rubyonrails.org/2009/7/30/community-highlights-yehuda-katz
+http://yehudakatz.com/2009/03/06/alias_method_chain-in-models/
+http://www.engineyard.com/blog/2009/6-steps-to-refactoring-rails-for-mere-mortals/
+There are lots of lessons and techniques in ruby, rails and general programming to be learnt from these posts. Enjoy!</p>
     </section>
 
     <footer class="post-footer">
@@ -134,7 +156,9 @@
     </header>
     
     <section class="post-excerpt">
-        <p>It&rsquo;s been a long, two-stepped journey to get to Jaunty from Hardy, all so that I can experience notify-osd with Twitter updates. The upgrade has been long and slow (NZ internet!) but I found the end result strangely unsatisfying. Yes, notifications work, and there&rsquo;s a new &ldquo;Computer Janitor&rdquo;, but that&rsquo;s it. A bit let down. Then I found out about Gwibber, the new twitter client on Ubuntu. It is by far superior to other clients on Linux.</p>
+        <p>It&rsquo;s been a long, two-stepped journey to get to Jaunty from Hardy, all so that I can experience notify-osd with Twitter updates.
+The upgrade has been long and slow (NZ internet!) but I found the end result strangely unsatisfying. Yes, notifications work, and there&rsquo;s a new &ldquo;Computer Janitor&rdquo;, but that&rsquo;s it. A bit let down.
+Then I found out about Gwibber, the new twitter client on Ubuntu. It is by far superior to other clients on Linux.</p>
     </section>
 
     <footer class="post-footer">
@@ -197,7 +221,11 @@
     </header>
     
     <section class="post-excerpt">
-        <p>One thing I found out that about rails is that the select_tag is a pain. Why? Because this would not work: &lt;%= select_tag &lsquo;industry&rsquo;, options_from_collection_for_select(@industry_list, &ldquo;id&rdquo;, &ldquo;name&rdquo;, @industry) %&gt; But this would work: &lt;%= select_tag &lsquo;industry&rsquo;, options_from_collection_for_select(@industry_list, &ldquo;id&rdquo;, &ldquo;name&rdquo;, @industry.to_i) %&gt; Well, that&rsquo;s for forgetting that HTTP query parameters are strings!</p>
+        <p>One thing I found out that about rails is that the select_tag is a pain. Why? Because this would not work:
+&lt;%= select_tag &lsquo;industry&rsquo;, options_from_collection_for_select(@industry_list, &ldquo;id&rdquo;, &ldquo;name&rdquo;, @industry) %&gt;
+But this would work:
+&lt;%= select_tag &lsquo;industry&rsquo;, options_from_collection_for_select(@industry_list, &ldquo;id&rdquo;, &ldquo;name&rdquo;, @industry.to_i) %&gt;
+Well, that&rsquo;s for forgetting that HTTP query parameters are strings!</p>
     </section>
 
     <footer class="post-footer">
@@ -239,7 +267,9 @@
     </header>
     
     <section class="post-excerpt">
-        <p>Just upgraded to Ubuntu Hardy Heron. Again it broke my graphics driver. Envy (now EnvyNG) to the rescue again. As it was a Dell Vostro 200, there was some problem with IDE modes and such like, causing Ubuntu to fail booting! A change in the boot settings helped. See this bug report (https://bugs.launchpad.net/ubuntu/+source/linux-source-2.6.22/+bug/153702) So, I have been through Edgy, Feisty, Gutsy, and now Heron. Just a thought, what happens after Ubuntu Zesty Zebra ?</p>
+        <p>Just upgraded to Ubuntu Hardy Heron. Again it broke my graphics driver. Envy (now EnvyNG) to the rescue again.
+As it was a Dell Vostro 200, there was some problem with IDE modes and such like, causing Ubuntu to fail booting! A change in the boot settings helped. See this bug report (https://bugs.launchpad.net/ubuntu/+source/linux-source-2.6.22/+bug/153702)
+So, I have been through Edgy, Feisty, Gutsy, and now Heron. Just a thought, what happens after Ubuntu Zesty Zebra ?</p>
     </section>
 
     <footer class="post-footer">

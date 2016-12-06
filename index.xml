@@ -6,8 +6,33 @@
     <description>Recent content on Thong Kuah&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 04 Dec 2016 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 06 Dec 2016 22:43:30 +1300</lastBuildDate>
     <atom:link href="https://blog.kuahyeow.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Code Review talk</title>
+      <link>https://blog.kuahyeow.com/posts/code-review-rubyconf-au/</link>
+      <pubDate>Tue, 06 Dec 2016 22:43:30 +1300</pubDate>
+      
+      <guid>https://blog.kuahyeow.com/posts/code-review-rubyconf-au/</guid>
+      <description>&lt;p&gt;It was a great pleasure and honour to give a talk at &lt;a href=&#34;http://www.rubyconf.org.au/2016&#34;&gt;RubyConf Australia 2016&lt;/a&gt; in Gold Coast.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;My talk was about the cultural learnings of code review, as practised in Powershop.
+Here is the
+&lt;a href=&#34;https://rubyconf.eventer.com/rubyconf-australia-2016-1489/code-review-pitfalls-and-good-practices-by-thong-kuah-1930&#34;&gt;video of my talk&lt;/a&gt;.
+Enjoy!&lt;/p&gt;
+
+&lt;p&gt;You can also find slides at &lt;a href=&#34;https://speakerdeck.com/kuahyeow/code-review-pitfalls-and-good-practices&#34;&gt;Speaker Deck&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The conference itself was awesome, the organisers really went out of their way to help us feel welcome and happy. The speakers,
+for example were treated to a early morning breakfasts with Dolphins. The closing party at MovieWorld was brilliant too -
+outdoor dinner with heaps of yummy food and we got part of the park all to ourselves. Everyone at the conference was positive and
+cheerful. This was my second time at a RubyConf Australia, and it was well worth it.&lt;/p&gt;
+
+&lt;p&gt;The next RubyConf Australia next year in 2017 will be back in Melbourne. If you are considering attending the conference, go for it !&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Convert array to hash of hashes...</title>
@@ -192,16 +217,6 @@ for full gory details.&lt;/p&gt;
       
       <guid>https://blog.kuahyeow.com/posts/strengths-weaknesses-and-games/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://www.amazon.com/StrengthsFinder-2-0-Upgraded-Discover-Strengths/dp/159562015X&#34;&gt;StrengthsFinder&lt;/a&gt; is an amazing book, and an assessment tool that helps you &lt;a href=&#34;http://www.strengthsfinder.com/&#34;&gt;discover your strength&lt;/a&gt;s. Its central concept is that you should focus on your strengths, not your weaknesses. I was introduced to it at the &lt;a href=&#34;http://www.summerofcode.co.nz/&#34;&gt;Summer of Code&lt;/a&gt; (NZ) program several years ago. The concept of focusing on strengths was just brilliant. &lt;br /&gt;&lt;br /&gt;This really reminded me of my game playing style, especially in &lt;a href=&#34;http://en.wikipedia.org/wiki/Role-playing_game&#34;&gt;RPGs&lt;/a&gt;, where you have to increase the levels and skills of your character(s) in order to be able to fight enemies that pop up with increasing difficulty and toughness.&lt;br /&gt;&lt;br /&gt;What is the usual strategy here? Increase your strong attributes up to insane levels. Weaker attributes would be increased only for the sake of &amp;lsquo;balance&amp;rsquo;.&amp;nbsp; To translate into gamer-speak: &lt;br /&gt;&lt;blockquote style=&#34;font-family: &amp;quot;Helvetica Neue&amp;quot;,Arial,Helvetica,sans-serif;&#34;&gt;Level up all magic skills for the mage, and have some combat skills to keep up with the group. Increase the tank&amp;rsquo;s combat and defense skills to insane, and increase healing and magic if there&amp;rsquo;s a chance.&lt;br /&gt;&lt;/blockquote&gt;Balance is important as weaknesses cannot be so abysmally weak that you cannot function if a team member which has that strength was unavailable. In gamer-speak again:&lt;br /&gt;&lt;blockquote style=&#34;font-family: &amp;quot;Helvetica Neue&amp;quot;,Arial,Helvetica,sans-serif;&#34;&gt;Tank has to be able to self-heal and revive mage if mage goes down, and hang on until mage revives and heals group.&lt;br /&gt;&lt;/blockquote&gt;Imagine instead we concentrate on improving weakness more than improving strengths. What would result is a group that has similar strengths and weakness, i.e. a homogeneous group, but at levels lower than peak strengths. This team of &amp;lsquo;all-rounders&amp;rsquo; would then be able to do each other&amp;rsquo;s jobs, but none would available to handle particularly &lt;i&gt;difficult&lt;/i&gt; problems. In game-land, this is referred to as:&lt;br /&gt;&lt;blockquote style=&#34;font-family: &amp;quot;Helvetica Neue&amp;quot;,Arial,Helvetica,sans-serif;&#34;&gt;Boss kills mediocre party in one stroke.&lt;br /&gt;&lt;/blockquote&gt;Whereas a team with people who has different and fully-developed skills will have a better chance of tackling the problem. In game-land, this scenario is better:&lt;br /&gt;&lt;blockquote style=&#34;font-family: &amp;quot;Helvetica Neue&amp;quot;,Arial,Helvetica,sans-serif;&#34;&gt;Boss unleashes stroke of hell, tank survives and manages to revive others. Or Mage casts protective spell powerful enough to protect party.&lt;br /&gt;&lt;/blockquote&gt;Which brings us to complementary strengths. The team must have a variety of different strengths to deal with different problems that crop up. This, ideally should be addressed when you are starting to hire for the team. Of course it&amp;rsquo;s hard to figure out strengths in an interview. Take time, figure out what strengths are needed for teams, as you never know what &lt;strike&gt;high-level boss&lt;/strike&gt; crazy, hairy problem your team will face&amp;hellip;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Ruby and Rails links, Best of</title>
-      <link>https://blog.kuahyeow.com/posts/ruby-and-rails-links-best-of/</link>
-      <pubDate>Tue, 15 Sep 2009 22:13:00 +1200</pubDate>
-      
-      <guid>https://blog.kuahyeow.com/posts/ruby-and-rails-links-best-of/</guid>
-      <description>&lt;p&gt;Monthly collection of Ruby links that I&amp;rsquo;ll regret forgetting about:&lt;br /&gt;&lt;ul&gt;&lt;li&gt;&lt;a href=&#34;http://yehudakatz.com/2009/08/24/my-10-favorite-things-about-the-ruby-language/&#34;&gt;My 10 Favorite Things About the Ruby Language � Katz Got Your Tongue?&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&#34;http://dablog.rubypal.com/2009/1/14/10-things-to-be-aware-of-in-moving-to-ruby-1-9&#34;&gt;http://dablog.rubypal.com/2009/1/14/10-things-to-be-aware-of-in-moving-to-ruby-1-9&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&#34;http://dablog.rubypal.com/2009/1/16/son-of-10-things-to-be-aware-of-in-ruby-1-9&#34;&gt;http://dablog.rubypal.com/2009/1/16/son-of-10-things-to-be-aware-of-in-ruby-1-9&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&#34;http://www.manning.com/black2/&#34;&gt;http://www.manning.com/black2/&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&#34;http://weblog.rubyonrails.org/2009/9/4/ruby-on-rails-2-3-4&#34;&gt;Upgrade to Rails 2.3.4, 2.2.3&lt;/a&gt; (Security Release) &lt;/li&gt;&lt;li&gt;&lt;a href=&#34;http://weblog.rubyonrails.org/2009/9/1/gem-packaging-best-practices&#34;&gt;Riding Rails: Gem Packaging: Best Practices&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;
 </description>
     </item>
     

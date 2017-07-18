@@ -6,8 +6,50 @@
     <description>Recent content in Posts-rsses on Thong Kuah&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 15 Jan 2017 08:28:57 +1300</lastBuildDate>
+    <lastBuildDate>Tue, 18 Jul 2017 20:32:50 +1200</lastBuildDate>
     <atom:link href="https://blog.kuahyeow.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Write to NTFS with MacOS</title>
+      <link>https://blog.kuahyeow.com/posts/write_to_ntfs_with_macos/</link>
+      <pubDate>Tue, 18 Jul 2017 20:32:50 +1200</pubDate>
+      
+      <guid>https://blog.kuahyeow.com/posts/write_to_ntfs_with_macos/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m always surprised when I plug in the family&amp;rsquo;s external HD and find that my Mac refuses
+to write to it. Hopefully one day, it will be fixed. So what do I do ?&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;In the meantime, I followed the handy instructions at &lt;a href=&#34;https://github.com/osxfuse/osxfuse/wiki/NTFS-3G&#34;&gt;https://github.com/osxfuse/osxfuse/wiki/NTFS-3G&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;This is what I got below. It looks the first time I installed osxfuse without choosing the
+&amp;ldquo;MacOs compatability&amp;rdquo; option.&lt;/p&gt;
+
+&lt;p&gt;The second time I tried it, it was already mounted, so I had to click the &amp;ldquo;eject&amp;rdquo; icon for
+the drive in Finder.&lt;/p&gt;
+
+&lt;p&gt;The third time, it seemed to work but was waiting on the &amp;ldquo;Fixing&amp;rdquo; line for a long time
+which was worrying but nothing bad happened, hurray !&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;
+kuah-air:~ kuahyeow$ sudo ntfs-3g /dev/disk3s1 /Volumes/NTFS -olocal -oallow_other
+dyld: Library not loaded: /usr/local/lib/libfuse.2.dylib
+  Referenced from: /usr/local/bin/ntfs-3g
+  Reason: image not found
+kuah-air:~ kuahyeow$ sudo ntfs-3g /dev/disk3s1 /Volumes/NTFS -olocal -oallow_other
+Error opening &#39;/dev/disk3s1&#39;: Resource busy
+Failed to mount &#39;/dev/disk3s1&#39;: Resource busy
+Mount is denied because the NTFS volume is already exclusively opened.
+The volume may be already mounted, or another software may use it which
+could be identified for example by the help of the &#39;fuser&#39; command.
+kuah-air:~ kuahyeow$ sudo ntfs-3g /dev/disk3s1 /Volumes/NTFS -olocal -oallow_other
+The disk contains an unclean file system (0, 0).
+The file system wasn&#39;t safely closed on Windows. Fixing.
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Props to the developers of osxfuse and ntfs-3g !&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Non-secure sites in Chrome</title>
@@ -233,16 +275,6 @@ for full gory details.&lt;/p&gt;
       
       <guid>https://blog.kuahyeow.com/posts/wellington-hazard-map/</guid>
       <description>&lt;p&gt;Reading this &lt;a href=&#34;http://www.stuff.co.nz/dominion-post/local/2957143/Full-list-of-hazards-revealed&#34;&gt;article about Wellington Hazards&lt;/a&gt; just makes me want to plot it on a map. It took a while, but here is a &lt;a href=&#34;http://maps.google.co.nz/maps/ms?ie=UTF8&amp;amp;hl=en&amp;amp;msa=0&amp;amp;msid=105368590499327803003.000475dc20f9a8d9d5142&amp;amp;t=h&amp;amp;z=11&#34;&gt;map of Wellington Hazards / Contamination&lt;/a&gt;. Below is a screenshots of the hazards on Google Earth and Google Maps (Google Earth shot nicely prepared by &lt;a href=&#34;http://www.cameron-prebble.com/&#34;&gt;Cameron&lt;/a&gt;).&amp;nbsp; Let me know what do you think?&lt;br /&gt;&lt;br /&gt;Read on after the jump for hyper-technical explanation of how I made the map.&amp;nbsp; &lt;br /&gt;&lt;br /&gt;&lt;div class=&#34;separator&#34; style=&#34;clear: both; text-align: center;&#34;&gt;&lt;a href=&#34;http://4.bp.blogspot.com/_ftRNxhptfh4/StuP4I5qc-I/AAAAAAAAAc4/wwsroHQdujg/s1600/hazardmapgered.png&#34; imageanchor=&#34;1&#34; style=&#34;margin-left: 1em; margin-right: 1em;&#34;&gt;&lt;img border=&#34;0&#34; class=&#34;&#34; more=&#34;&#34; src=&#34;http://4.bp.blogspot.com/_ftRNxhptfh4/StuP4I5qc-I/AAAAAAAAAc4/wwsroHQdujg/s400/hazardmapgered.png&#34; title=&#34;Wellington Hazards and Contaminants map&#34; /&gt;&lt;/a&gt;&lt;br /&gt;&lt;/div&gt;&lt;br /&gt;&lt;div class=&#34;separator&#34; style=&#34;clear: both; text-align: center;&#34;&gt;&lt;a href=&#34;http://1.bp.blogspot.com/_ftRNxhptfh4/StuSjYMCw6I/AAAAAAAAAdA/M0AGg0zv2YM/s1600-h/Hazards+Wellington_1255470787905.png&#34; imageanchor=&#34;1&#34; style=&#34;margin-left: 1em; margin-right: 1em;&#34;&gt;&lt;img border=&#34;0&#34; src=&#34;http://1.bp.blogspot.com/_ftRNxhptfh4/StuSjYMCw6I/AAAAAAAAAdA/M0AGg0zv2YM/s400/Hazards+Wellington_1255470787905.png&#34; /&gt;&lt;/a&gt;&lt;br /&gt;&lt;/div&gt;&lt;br /&gt;&lt;br /&gt;Here&amp;rsquo;s the lowdown on the technical wizardry. The data is based on &lt;a href=&#34;http://static.stuff.co.nz/files/WCC-slur.pdf&#34;&gt;http://static.stuff.co.nz/files/WCC-slur.pdf&lt;/a&gt;. I had to extract the data out from the pdf, obtaining a spreadsheet that looks like this:&lt;br /&gt;&lt;blockquote&gt;&lt;span style=&#34;font-size: x-small;&#34;&gt;&lt;span style=&#34;font-family: &amp;quot;Courier New&amp;quot;,Courier,monospace;&#34;&gt;No &amp;amp; STREET &amp;amp; City &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; HAIL &amp;amp; CLASSIFICATION&amp;amp; CONTAMINANTS &lt;/span&gt;&lt;/span&gt;&lt;br /&gt;&lt;span style=&#34;font-size: x-small;&#34;&gt;&lt;span style=&#34;font-family: &amp;quot;Courier New&amp;quot;,Courier,monospace;&#34;&gt;50 BUCKLE ST EASTERN&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Service Stations Verified History of Hazardous Activity or Industry &lt;/span&gt;&lt;/span&gt;&lt;br /&gt;&lt;span style=&#34;font-size: x-small;&#34;&gt;&lt;span style=&#34;font-family: &amp;quot;Courier New&amp;quot;,Courier,monospace;&#34;&gt;75 DARLINGTON RD EASTERN &amp;nbsp;&amp;nbsp;&amp;nbsp; Landfill Verified History of Hazardous Activity or Industry &lt;/span&gt;&lt;/span&gt;&lt;br /&gt;&lt;span style=&#34;font-size: x-small;&#34;&gt;&lt;span style=&#34;font-family: &amp;quot;Courier New&amp;quot;,Courier,monospace;&#34;&gt;501 EVANS BAY PDE EASTERN &amp;nbsp;&amp;nbsp; Service Stations Verified History of Hazardous Activity or Industry &lt;/span&gt;&lt;/span&gt;&lt;br /&gt;&lt;span style=&#34;font-size: x-small;&#34;&gt;&lt;span style=&#34;font-family: &amp;quot;Courier New&amp;quot;,Courier,monospace;&#34;&gt;9 -11 KENT TCE EASTERN &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Storage Verified History of Hazardous Activity or Industry &lt;/span&gt;&lt;/span&gt;&lt;br /&gt;&lt;/blockquote&gt;The address leaves a lot to be desired. Having data like &amp;lsquo;Eastern&amp;rsquo; for the city column makes no sense to anyone or a program. Cleaning that up and adding &amp;ldquo;Wellington NZ&amp;rdquo; would make it easier for geocoding. We now have this:&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;span style=&#34;font-size: x-small;&#34;&gt;&lt;span style=&#34;font-family: &amp;quot;Courier New&amp;quot;,Courier,monospace;&#34;&gt;HAIL &amp;amp; CLASSIFICATION&amp;amp; CONTAMINANTS&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Full Cleaned Address&lt;/span&gt;&lt;br style=&#34;font-family: &amp;quot;Courier New&amp;quot;,Courier,monospace;&#34; /&gt;&lt;span style=&#34;font-family: &amp;quot;Courier New&amp;quot;,Courier,monospace;&#34;&gt;Service Stations Verified History of Hazardous Activity or Industry &amp;nbsp; 50 BUCKLE ST&amp;nbsp; Wellington New Zealand&lt;/span&gt;&lt;br style=&#34;font-family: &amp;quot;Courier New&amp;quot;,Courier,monospace;&#34; /&gt;&lt;span style=&#34;font-family: &amp;quot;Courier New&amp;quot;,Courier,monospace;&#34;&gt;Landfill Verified History of Hazardous Activity or Industry &amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 75 DARLINGTON RD&amp;nbsp; Wellington New Zealand&lt;/span&gt;&lt;br style=&#34;font-family: &amp;quot;Courier New&amp;quot;,Courier,monospace;&#34; /&gt;&lt;span style=&#34;font-family: &amp;quot;Courier New&amp;quot;,Courier,monospace;&#34;&gt;Service Stations Verified History of Hazardous Activity or Industry &amp;nbsp; 501 EVANS BAY PDE&amp;nbsp; Wellington New Zealand&lt;/span&gt;&lt;br style=&#34;font-family: &amp;quot;Courier New&amp;quot;,Courier,monospace;&#34; /&gt;&lt;span style=&#34;font-family: &amp;quot;Courier New&amp;quot;,Courier,monospace;&#34;&gt;Storage Verified History of Hazardous Activity or Industry &amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 9 -11 KENT TCE&amp;nbsp; Wellington New Zealand&lt;/span&gt;&lt;/span&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;We can now geocode, using the &lt;a href=&#34;http://pamelafox-samplecode.googlecode.com/svn/trunk/spreadsheetsgeocoder/spreadsheetsgeocoder.xml&#34;&gt;helpful spreadsheet geocoder&lt;/a&gt; (&lt;a href=&#34;http://www.mail-archive.com/google-maps-api@googlegroups.com/msg09461.html&#34;&gt;instructions here&lt;/a&gt;). The only limitation was that only 100 addresses can be geo-coded at one time. But that&amp;rsquo;s fine as I only have 592 addresses.&lt;br /&gt;&lt;br /&gt;Now here is the tricky bit, there is no good way to get items from a spreadsheet onto a map. The best way I could was use KML. I used the &lt;a href=&#34;http://earth.google.com/outreach/tutorial_spreadsheet.html&#34;&gt;Spreadsheet Mapper v2.0&lt;/a&gt;, but it was far too painful with the browser locking with just 600 rows. Here is the resultant spreadsheet: &lt;a href=&#34;http://spreadsheets.google.com/pub?key=tXlYA3d_eh42qOboocs8zug&amp;amp;output=html&#34;&gt;http://spreadsheets.google.com/pub?key=tXlYA3d_eh42qOboocs8zug&amp;amp;output=html&lt;/a&gt;. I will most likely use PostGis and the &lt;a href=&#34;http://postgis.refractions.net/docs/ST_AsKML.html&#34;&gt;asKML function&lt;/a&gt; next time.&lt;br /&gt;&lt;br /&gt;Data spreadsheet: &lt;a href=&#34;http://spreadsheets.google.com/pub?key=t_4WKBgw34UvW_zQMChuVKw&amp;amp;gid=0&#34;&gt;http://spreadsheets.google.com/pub?key=t_4WKBgw34UvW_zQMChuVKw&amp;amp;gid=0&lt;/a&gt;&lt;br /&gt;&lt;br /&gt;Google Maps (my maps): &lt;a href=&#34;http://maps.google.co.nz/maps/ms?ie=UTF8&amp;amp;hl=en&amp;amp;msa=0&amp;amp;msid=105368590499327803003.000475dc20f9a8d9d5142&amp;amp;t=h&amp;amp;z=11&#34;&gt;http://maps.google.co.nz/maps/ms?ie=UTF8&amp;amp;hl=en&amp;amp;msa=0&amp;amp;msid=105368590499327803003.000475dc20f9a8d9d5142&amp;amp;t=h&amp;amp;z=11&lt;/a&gt;&lt;br /&gt;&lt;br /&gt;KML file (.kml): &lt;a href=&#34;http://maps.google.co.nz/maps/ms?ie=UTF8&amp;amp;hl=en&amp;amp;t=h&amp;amp;msa=0&amp;amp;output=nl&amp;amp;msid=105368590499327803003.000475dc20f9a8d9d5142&#34;&gt;http://maps.google.co.nz/maps/ms?ie=UTF8&amp;amp;hl=en&amp;amp;t=h&amp;amp;msa=0&amp;amp;output=nl&amp;amp;msid=105368590499327803003.000475dc20f9a8d9d5142&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Rands In Repose: Your People</title>
-      <link>https://blog.kuahyeow.com/posts/rands-in-repose-your-people/</link>
-      <pubDate>Tue, 29 Sep 2009 22:41:00 +1300</pubDate>
-      
-      <guid>https://blog.kuahyeow.com/posts/rands-in-repose-your-people/</guid>
-      <description>&lt;p&gt;Came upon this really good post about people you should cherish: &lt;br /&gt;&lt;br /&gt;&lt;a href=&#34;http://www.randsinrepose.com/archives/2009/09/07/your_people.html&#34;&gt;Rands In Repose: Your People&lt;/a&gt;&lt;br /&gt;&lt;br /&gt;Really good insight - &amp;ldquo;As we edit our days into these stories, there is always a risk of fiction. This is why you need to identify and nurture Your People.&amp;rdquo;&lt;br /&gt;&lt;br /&gt;What are Your People? &lt;br /&gt;&lt;blockquote&gt;&amp;ldquo;You tell these stories to Your People without reservation. Your People love your stories — fiction and all. They love how you tell them, they laugh about the lies you tell yourself, and then they stop and they tell you the &lt;b&gt;truth&lt;/b&gt;.&amp;rdquo; &lt;br /&gt;&lt;/blockquote&gt;You need someone to keep you honest. Read the post for a clear definition of &lt;a href=&#34;http://www.randsinrepose.com/archives/2009/09/07/your_people.html&#34;&gt;Your People&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     

@@ -47,6 +47,29 @@
 	
 		<article class="li posts">
     <header class="post-header">
+        <h3 class="post-title"><a href="https://blog.kuahyeow.com/posts/findeach-bites/">find_each bites</a></h3>
+        <p class="post-time"><time datetime="2009-09-08T23:11:00&#43;12:00">September 8, 2009</time></p>
+    </header>
+    
+    <section class="post-excerpt">
+        <p>ActiveRecord::Base#find_each is an awesome idiom for batch processing large sets of data. It combines the neat DSL of ActiveRecord and allows you to operate at the level of the individual item.
+So, imagine my surprise when I debugged my code and discovered that find_each introduces a scope into ActiveRecord calls within the block. Demonstrating by example:
+Slam.find_each(:conditions =&gt; {:value =&gt; nil}) do |slam|#&hellip;.&nbsp; Slam.find_by_key(slam.key) #Find related key&nbsp; #However, in effect becomes Slam.</p>
+    </section>
+
+    <footer class="post-footer">
+        <span>
+            
+            
+            	&nbsp;&nbsp;<i class="fa fa-tag"></i>
+            	batch, rails, intent, bug, find_each
+            
+        </span>
+    </footer>
+</article>
+	
+		<article class="li posts">
+    <header class="post-header">
         <h3 class="post-title"><a href="https://blog.kuahyeow.com/posts/fear-singularity/">Fear the singularity</a></h3>
         <p class="post-time"><time datetime="2009-09-06T21:17:00&#43;12:00">September 6, 2009</time></p>
     </header>
@@ -259,27 +282,6 @@ Then I found out about Gwibber, the new twitter client on Ubuntu. It is by far s
             
             	&nbsp;&nbsp;<i class="fa fa-tag"></i>
             	technology, twitter client, ubuntu, growl, gwibber, notify-osd
-            
-        </span>
-    </footer>
-</article>
-	
-		<article class="li posts">
-    <header class="post-header">
-        <h3 class="post-title"><a href="https://blog.kuahyeow.com/posts/view-as-single-page/">&#39;View as single page&#39;</a></h3>
-        <p class="post-time"><time datetime="2008-09-09T22:42:00&#43;12:00">September 9, 2008</time></p>
-    </header>
-    
-    <section class="post-excerpt">
-        <p>Just wanted to rant about how news websites have the annoying feature of splitting up articles into &lsquo;pages&rsquo; - of just two or so paragraphs. There&rsquo;ll be three or four of these &lsquo;pages&rsquo;. But once you click on the &lsquo;view as single page&rsquo;, you realise how ridiculously short the article is, to even split to any page. I wish there&rsquo;s a magic unpage! bookmarklet out there.</p>
-    </section>
-
-    <footer class="post-footer">
-        <span>
-            
-            
-            	&nbsp;&nbsp;<i class="fa fa-tag"></i>
-            	rant, rambling, unpage, short
             
         </span>
     </footer>

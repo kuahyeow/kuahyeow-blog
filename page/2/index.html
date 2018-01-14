@@ -47,6 +47,29 @@
 	
 		<article class="li posts">
     <header class="post-header">
+        <h3 class="post-title"><a href="https://blog.kuahyeow.com/posts/untitled/">Untitled</a></h3>
+        <p class="post-time"><time datetime="2010-08-23T14:35:00&#43;12:00">August 23, 2010</time></p>
+    </header>
+    
+    <section class="post-excerpt">
+        <p>Amplify&rsquo;d from martinfowler.comIdentity MapEnsures that each object gets loaded only once by keeping
+every loaded object in a map. Looks up objects using the map when
+referring to them.An old proverb says that a man with two watches never knows
+what time it is. If two watches are confusing, you can get in an even
+bigger mess with loading objects from a database. If you aren&rsquo;t
+careful you can load the data from the same database record into two</p>
+    </section>
+
+    <footer class="post-footer">
+        <span>
+            
+            
+        </span>
+    </footer>
+</article>
+	
+		<article class="li posts">
+    <header class="post-header">
         <h3 class="post-title"><a href="https://blog.kuahyeow.com/posts/facebook-greedy-defaults-and-jarring/">Facebook - greedy defaults and jarring configs</a></h3>
         <p class="post-time"><time datetime="2010-08-23T12:29:00&#43;12:00">August 23, 2010</time></p>
     </header>
@@ -244,29 +267,6 @@ My 10 Favorite Things About the Ruby Language � Katz Got Your Tongue?http://da
             
             	&nbsp;&nbsp;<i class="fa fa-tag"></i>
             	technology, rails, ruby, collection, links
-            
-        </span>
-    </footer>
-</article>
-	
-		<article class="li posts">
-    <header class="post-header">
-        <h3 class="post-title"><a href="https://blog.kuahyeow.com/posts/findeach-bites/">find_each bites</a></h3>
-        <p class="post-time"><time datetime="2009-09-08T23:11:00&#43;12:00">September 8, 2009</time></p>
-    </header>
-    
-    <section class="post-excerpt">
-        <p>ActiveRecord::Base#find_each is an awesome idiom for batch processing large sets of data. It combines the neat DSL of ActiveRecord and allows you to operate at the level of the individual item.
-So, imagine my surprise when I debugged my code and discovered that find_each introduces a scope into ActiveRecord calls within the block. Demonstrating by example:
-Slam.find_each(:conditions =&gt; {:value =&gt; nil}) do |slam|#&hellip;.&nbsp; Slam.find_by_key(slam.key) #Find related key&nbsp; #However, in effect becomes Slam.</p>
-    </section>
-
-    <footer class="post-footer">
-        <span>
-            
-            
-            	&nbsp;&nbsp;<i class="fa fa-tag"></i>
-            	batch, rails, intent, bug, find_each
             
         </span>
     </footer>

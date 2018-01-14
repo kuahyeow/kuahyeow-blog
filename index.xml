@@ -15,7 +15,9 @@
       <pubDate>Sun, 14 Jan 2018 20:18:40 +1300</pubDate>
       
       <guid>https://blog.kuahyeow.com/posts/shell-tools/</guid>
-      <description>&lt;p&gt;Here&amp;rsquo;s some neat little tricks I have learned over time :&lt;/p&gt;
+      <description>&lt;p&gt;I have embraced the Unix philosophy of small tools done well. It started when I resolved to use
+&lt;em&gt;Bash&lt;/em&gt; to solve weekly challenges at work (another neat idea, more on that another time!). Here&amp;rsquo;s
+some neat little tricks I have learned over time :&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;sort -n&lt;/code&gt; : sort numerically&lt;/p&gt;
 
